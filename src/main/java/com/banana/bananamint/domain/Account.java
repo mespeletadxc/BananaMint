@@ -9,6 +9,8 @@ import lombok.ToString;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "accounts")
@@ -38,4 +40,18 @@ public class Account {
 
     private boolean active;
 
+    //lo añado
+    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY,
+            mappedBy = "moneyFrom")
+    private List<Expense> expenses = new ArrayList<>();
+
+    public Account(Long id, String type, LocalDate openingDate, double balance, double maxOverdraft, Customer owner, boolean active) {
+        this.id = id;
+        this.type = type;
+        this.openingDate = openingDate;
+        this.balance = balance;
+        this.maxOverdraft = maxOverdraft;
+        this.owner = owner;
+        this.active = active;
+    }
 }

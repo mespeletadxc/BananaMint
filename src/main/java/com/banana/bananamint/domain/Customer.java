@@ -34,6 +34,12 @@ public class Customer {
             mappedBy = "owner")
     private List<Account> accounts = new ArrayList<>();
 
+    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY,
+            mappedBy = "user")
+    private List<Expense> expenses = new ArrayList<>();
+
+
+
     public Customer(Long id, String name, String email, LocalDate birthDate, String dni) {
         this.id = id;
         this.name = name;
