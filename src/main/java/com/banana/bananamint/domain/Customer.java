@@ -42,6 +42,13 @@ public class Customer {
         this.dni = dni;
     }
 
+    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY,
+            mappedBy = "user")
+    private List<Budget> budgets = new ArrayList<>();
+
+
+
+
     public boolean isValid() throws CustomerException {
         // Para que el usuario sea valido:
         // email válido

@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 
@@ -32,4 +34,20 @@ public class Category {
     private String description;
 
     private LocalDate createdAt;
+
+    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY,
+            mappedBy = "category")
+    private List<Budget> budgets = new ArrayList<>();
+
+    public Category(Integer id, String name, String type, String description, LocalDate createdAt) {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.description = description;
+        this.createdAt = createdAt;
+    }
+
+    public Category(Object o, String categoriaA, String tipoA, String descripcionA, LocalDate now) {
+
+    }
 }

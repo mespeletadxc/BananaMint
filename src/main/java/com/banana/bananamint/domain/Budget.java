@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
@@ -21,16 +22,23 @@ public class Budget {
     @Schema(name = "Budget ID", example = "1", required = false)
     private Long id;
 
-    @Transient
+    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "category_id")
+    @ToString.Exclude
+    //@Transient
     private Category category;
 
     private double amount;
 
-    @Transient
+    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "customer_id")
+    @ToString.Exclude
+    //@Transient
     private Customer user;
 
     private Long selected;
 
     private Long balance;
+
 
 }
