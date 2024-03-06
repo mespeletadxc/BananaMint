@@ -24,14 +24,18 @@ public class Income {
     @Schema(name = "Income ID", example = "1", required = false)
     private Integer Id;
 
-    @Transient
+    //@Transient
+    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "customer_id")
     private Customer user;
 
     private double amount;
 
     private LocalDate enterDate;
 
-    @Transient
+    //@Transient
+    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "account_id")
     private Account moneyTo;
 
     private String status;

@@ -36,14 +36,14 @@ class AccountRepositoryTest {
     //void addwithcustomer() throws SQLException {
     //save
     @Test
-    //@Transactional
+   // @Transactional
     void addwithcustomer() {
         Account newAcc = new Account(null, "Corriente", LocalDate.now(), 1000.00, 100.00,
-                new Customer(null, "Juan", "Juan@hotmail.com", LocalDate.now(),"12345678L",null),true);
+                new Customer(null, "Juan", "Juan@hotmail.com", LocalDate.now(),"12345678L"),true);
 
         jpaRepo.save(newAcc);
         Optional<Account> aAccount = jpaRepo.findById(newAcc.getId());
-        System.out.println("Account: "+aAccount.toString());
+        //System.out.println("Account: "+aAccount.toString());
 
         assertEquals(aAccount.get().getId(), newAcc.getId());
         // assertThat(aAccount.getId()).isGreaterThan(0);
