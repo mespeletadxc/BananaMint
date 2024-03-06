@@ -12,6 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.time.LocalDate;
 import java.util.Optional;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
@@ -29,7 +30,6 @@ class ExpenseRepositoryTest {
 
     @Test
     void addExpense() {
-
         Customer cus1 = new Customer(null, "Juan", "Pepe@hotmail.com", LocalDate.now(), "12345678L");
         Account acc1 = new Account(null, "Corriente", LocalDate.now(), 1000.00, 100.00,
                 cus1, true);
@@ -39,11 +39,10 @@ class ExpenseRepositoryTest {
 
 
         expenseRepo.save(newExp);
+        System.out.println("Nuevo gasto: " + newExp);
 
-        Optional<Expense> eExpense = expenseRepo.findById(newExp.getId());
-//        System.out.println("Expense: " + eExpense.toString());
-//
-//        assertEquals(eExpense.get().getId(), newExp.getId());
+        assertThat(newExp.getId()).isGreaterThan(0);
+
     }
 
 }

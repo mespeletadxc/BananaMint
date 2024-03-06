@@ -1,0 +1,11 @@
+=====================
+=Historia de usuario=
+=====================
+*Como usuario, quiero poder añadir nuevos gastos para que el sistema los pueda tener en cuenta en mi
+gestión financiera
+
+IncomeExpenseService
+
+
+POST /costumer/{cid}/account/{aid}/addexpense
+
