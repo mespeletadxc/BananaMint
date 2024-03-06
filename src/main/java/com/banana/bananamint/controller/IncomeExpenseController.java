@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
+import java.time.LocalDate;
 
 @RestController
 //@RequestMapping("/expense")
@@ -30,18 +31,29 @@ public class IncomeExpenseController {
     @Autowired
     private IncomeExpenseService expenseService;
 
-//    @PutMapping("/addexpense/{idcustomer}/{idaccount}")
-    @PutMapping("/customer/{cid}/account/{aid}/addexpense")
+
+    @PostMapping("/customer/{cid}/account/{aid}/addexpense")
+//    @PostMapping("/customer/1/account/1/addexpense")
+//    @PostMapping("/addexpense")
     public ResponseEntity addExpense(
             @PathVariable @Min(1) Long cid,
             @PathVariable @Min(1) Long aid,
             @RequestBody @Valid Expense expense
     ) {
-        Account newAccount = accountRepo.findById(aid).orElseThrow(() -> new AccountException("Cuenta inexistente. ID: " + aid));
+        Account newAccount = accountRepo.findById(1L).orElseThrow(() -> new AccountException("Cuenta inexistente. ID: " + 1L));
 
-        Expense newExpense = new Expense(null, customerRepo.findById(cid).get(), expense.getAmount(), expense.getDueDate(), accountRepo.findById(aid).get(), expense.getStatus());
+        Expense newExpense = new Expense(null, customerRepo.findById(1L).get(), expense.getAmount(), expense.getDueDate(), accountRepo.findById(1L).get(), expense.getStatus());
+//        Expense newExpense = new Expense(null, customerRepo.findById(1L).get(), 200.00, LocalDate.now(), accountRepo.findById(1L).get(), "estado");
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(expenseService.addExpense(cid, newExpense));
+//        System.out.println(newExpense);
+        return ResponseEntity.status(HttpStatus.CREATED).body(expenseService.addExpense(1L, newExpense));
+    }
+    @GetMapping("/maria")
+    public void hola(
+
+    ){
+        System.out.println("hola");
+
     }
 
 }

@@ -45,4 +45,9 @@ public class Expense {
 
     private String status;
 
+    public Expense(double amount, LocalDate dueDate, Account moneyFrom) {
+        this.amount = amount;
+        this.dueDate = dueDate;
+        this.moneyFrom = moneyFrom;
+    }
 }
