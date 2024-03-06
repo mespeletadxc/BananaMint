@@ -5,9 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 
 @Entity
@@ -23,19 +24,26 @@ public class Account {
     @Schema(name = "Account ID", example = "1", required = false)
     private Long id;
 
+    @Size(min = 3, max = 10)
     private String type;
 
+    @DateTimeFormat
+    @NotNull
     LocalDate openingDate;
 
+    @Min(0)
     private double balance;
 
+    @Min(0)
     private double maxOverdraft;
 
-    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    //@ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "customer_id")
     @ToString.Exclude
     private Customer owner;
 
+    @NotNull
     private boolean active;
 
 }

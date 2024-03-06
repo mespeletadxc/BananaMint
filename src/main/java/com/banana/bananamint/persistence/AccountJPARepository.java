@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface AccountJPARepository extends JpaRepository<Account, Long> {
+    List<Account> findByOwnerId(Long idCustomer);
+//    List<Account> findByOwnerId(Long OwnerId);
 //    public List<Account> findAll(Long idCustomer) throws SQLException;
 //
 //    public Account save(Account account) throws SQLException;
