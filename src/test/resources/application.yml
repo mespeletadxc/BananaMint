@@ -1,6 +1,6 @@
 spring:
   application.name: bananamint
-  profiles.active: test
+  profiles.active: testSQL
 
 spring.mvc.pathmatch.matching-strategy: ANT_PATH_MATCHER
 

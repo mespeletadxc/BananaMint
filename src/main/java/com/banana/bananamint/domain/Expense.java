@@ -25,8 +25,9 @@ public class Expense {
     @Schema(name = "Expense ID", example = "1", required = false)
     private Integer Id;
 
-//    @Transient
-    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    //    @Transient
+//    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "customer_id")
     @ToString.Exclude
     private Customer user;
@@ -35,8 +36,9 @@ public class Expense {
 
     private LocalDate dueDate;
 
-//    @Transient
-    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    //    @Transient
+//    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "account_id")
     @ToString.Exclude
     private Account moneyFrom;
