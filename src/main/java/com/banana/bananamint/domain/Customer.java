@@ -9,6 +9,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -27,6 +29,18 @@ public class Customer {
     private String email;
     private LocalDate birthDate;
     private String dni;
+
+    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY,
+            mappedBy = "owner")
+    private List<Account> accounts = new ArrayList<>();
+
+    public Customer(Long id, String name, String email, LocalDate birthDate, String dni) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.birthDate = birthDate;
+        this.dni = dni;
+    }
 
     public boolean isValid() throws CustomerException {
         // Para que el usuario sea valido:

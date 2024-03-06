@@ -1,6 +1,6 @@
 spring:
   application.name: bananamint
-  profiles.active: test
+  profiles.active: testSQL
 
 spring.mvc.pathmatch.matching-strategy: ANT_PATH_MATCHER
 
@@ -35,3 +35,28 @@ server:
 
 logging:
   level.root: INFO
+
+---
+spring:
+  profiles: testSQL
+  sql.init.mode: always
+  datasource:
+    url: "jdbc:mysql://127.0.0.1:3306/bananamintdb"
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: banana_user
+    password: bmint123
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+      ddl-auto: update
+      generate-ddl: true
+    defer-datasource-initialization: true
+
+
+server:
+  port: 8800
+
+logging:
+  level.root: INFO
+
