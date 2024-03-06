@@ -1,4 +1,4 @@
-package com.microcompany.bananamint.bananamint;
+package com.banana.bananamint;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
