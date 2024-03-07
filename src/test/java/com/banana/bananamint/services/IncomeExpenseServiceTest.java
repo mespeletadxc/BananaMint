@@ -30,13 +30,10 @@ class IncomeExpenseServiceTest {
     @Test
     void addIncomeWithIdCustomer() {
         long idCustomer = 1L;
-        //Account newAccount = accountRepo.findById(idCustomer);
+        //Account varAccount = new Account(2L);
 
-        Customer newCustomer = customerRepo.findById(idCustomer).orElseThrow(() -> new CustomerException(idCustomer));
-        Account newAccountAux = (Account) newCustomer.getAccounts();
-        Account newAccount = accountRepo.findById(newAccountAux.getId()).orElseThrow(() -> new AccountException(idCustomer));
 
-        Income newInc = new Income(null, null, 100.00, LocalDate.now(), newAccount, "ingreso");
+        Income newInc = new Income(null, null, 100.00, LocalDate.now(),accountRepo.findById(1L).get(), "ingreso");
         incomeService.addIncome(idCustomer,newInc);
     }
 }

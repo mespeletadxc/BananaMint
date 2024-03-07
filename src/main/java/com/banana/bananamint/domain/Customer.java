@@ -33,35 +33,31 @@ public class Customer {
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY,
             mappedBy = "owner")
     private List<Account> accounts = new ArrayList<>();
+//
+//    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY,
+//            mappedBy = "user")
+//    private List<Income> incomes = new ArrayList<>();
 
-    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY,
-            mappedBy = "user")
-    private List<Income> incomes = new ArrayList<>();
+//    public Customer(Long id, String name, String email, LocalDate birthDate, String dni) {
+//        this.id = id;
+//        this.name = name;
+//        this.email = email;
+//        this.birthDate = birthDate;
+//        this.dni = dni;
+//    }
 
-    /*public Customer(Long id, String name, String email, LocalDate birthDate, String dni) {
+//    public Customer(Long id, String name, String email, LocalDate birthDate, String dni, List<Account> accounts) {
+//        this.id = id;
+//        this.name = name;
+//        this.email = email;
+//        this.birthDate = birthDate;
+//        this.dni = dni;
+
+    public Customer(Long id) {
         this.id = id;
-        this.name = name;
-        this.email = email;
-        this.birthDate = birthDate;
-        this.dni = dni;
-    }*/
-
-    public Customer(Long id, String name, String email, LocalDate birthDate, String dni) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.birthDate = birthDate;
-        this.dni = dni;
     }
-
-    public Customer(Long id, String name, String email, LocalDate birthDate, String dni, List<Account> accounts) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.birthDate = birthDate;
-        this.dni = dni;
-        this.accounts = accounts;
-    }
+//        this.accounts = accounts;
+//    }
 
 
 

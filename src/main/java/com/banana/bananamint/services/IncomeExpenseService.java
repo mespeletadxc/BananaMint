@@ -1,7 +1,9 @@
 package com.banana.bananamint.services;
 
+import com.banana.bananamint.domain.Account;
 import com.banana.bananamint.domain.Customer;
 import com.banana.bananamint.domain.Income;
+import com.banana.bananamint.exception.AccountException;
 import com.banana.bananamint.exception.CustomerException;
 import com.banana.bananamint.exception.IncomeExpenseException;
 import com.banana.bananamint.payload.IncomeExpenseComparison;
@@ -37,8 +39,17 @@ public class IncomeExpenseService implements IIncomeExpenseService{
     @Override
     public Income addIncome(Long idCustomer, Income income) throws IncomeExpenseException {
 
-        Customer newCostumer = customerRepo.findById(idCustomer).orElseThrow(() -> new CustomerException(idCustomer));
-        income.setUser(newCostumer);
+        Customer newCustomer = customerRepo.findById(idCustomer).orElseThrow(() -> new CustomerException(idCustomer));
+        income.setUser(newCustomer);
+        //Account newAccount = accountRepo.findById(newCustomer.getAccounts().get(0).getId()).orElseThrow(() -> new AccountException(income.getMoneyTo().getId()));
+        //income.setMoneyTo(newAccount);
+
+//        var newAccountAuxList = (List<Account>)newCustomer.getAccounts();
+//
+//        Account newAccount = newAccountAuxList.get(0);
+//        income.setMoneyTo(newAccount);
+        Account newAccount = accountRepo.findById(income.getMoneyTo().getId()).orElseThrow(() -> new AccountException(income.getMoneyTo().getId()));
+
         return incomeRepo.save(income);
 
     }
