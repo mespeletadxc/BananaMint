@@ -37,13 +37,6 @@ public class AccountsController {
     private AccountJPARepository accountJPARepository;
 
 
-//    @GetMapping("")
-//    public ResponseEntity getAccount() {
-//        List<Account> accs = accountService.getAccounts();
-//        if (accs != null && accs.size() > 0) return ResponseEntity.status(HttpStatus.OK).body(accs);
-//        else throw new AccountNotfoundException("Lista vacia");
-//    }
-
     @Operation(summary = "Add a new Account", description = "Returns a persisted Account")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201A", description = "Successfully created"),
@@ -71,100 +64,5 @@ public class AccountsController {
         else throw new AccountNotfoundException("No hay cuentas");
     }
 
-//    @GetMapping("/{id}")
-//    public ResponseEntity<Account> getAccount(
-//            @PathVariable @Min(1) Long id
-//    ) {
-//        try {
-//            return ResponseEntity.status(HttpStatus.OK).body(accountService.getAccount(id));
-//        } catch (AccountNotfoundException e) {
-//            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-//        }
-//    }
-//
-//    // update account
-//
-//    @PutMapping("/{id}")
-//    public ResponseEntity<Account> updateAccount(
-//            @RequestBody Account account,
-//            @PathVariable @Min(1) Long id
-//    ) {
-//        account.setId(id);
-//        return ResponseEntity.status(HttpStatus.ACCEPTED).body(accountService.updateAccount(id, account));
-//    }
-//
-//    // Add Money
-//   /* @PutMapping("/addmoney/{id}")
-//    public ResponseEntity<Account> addMoney(
-//            @PathVariable Long id,
-//            @RequestParam int amount,
-//            @RequestParam Long ownerId
-//    ) {
-//        return ResponseEntity.status(HttpStatus.ACCEPTED).body(accountService.addBalance(id, amount, ownerId));
-//    }*/
-//
-//    @PutMapping("/addmoney/{id}")
-//    public ResponseEntity<Account> addMoney(
-//            @PathVariable @Min(1) Long id,
-//            @RequestBody @Valid MoneyForOwner moneyForOwner
-//    ) {
-//        return ResponseEntity.status(HttpStatus.ACCEPTED).body(accountService.addBalance(id, moneyForOwner.getAmount(), moneyForOwner.getOwnerId()));
-//    }
-//
-//    // withdraw Money
-//   /* @PutMapping("/withdraw/{id}")
-//    public ResponseEntity<Account> withdraw(
-//            @PathVariable Long id,
-//            @RequestParam int amount,
-//            @RequestParam Long ownerId
-//    ) {
-//        return ResponseEntity.status(HttpStatus.ACCEPTED).body(accountService.withdrawBalance(id, amount, ownerId));
-//    }*/
-//    @PutMapping("/withdraw/{id}")
-//    public ResponseEntity<Account> withdraw(
-//            @PathVariable @Min(1) Long id,
-//            @RequestBody @Valid MoneyForOwner moneyForOwner
-//    ) {
-//        return ResponseEntity.status(HttpStatus.ACCEPTED).body(accountService.withdrawBalance
-//                (id, moneyForOwner.getAmount(), moneyForOwner.getOwnerId()));
-//    }
-//
-//    // Delete Account
-//    /*@DeleteMapping("/{id}")
-//    @ResponseStatus(HttpStatus.ACCEPTED)
-//    public ApiResponse deleteAccount(
-//            @PathVariable Long id
-//    ) {
-//        this.accountService.delete(id);
-//        return new ApiResponse("Account is Successfully Deleted", true);
-//    }*/
-//
-//    @DeleteMapping("/{id}")
-//    public ResponseEntity deleteAccount(
-//            @PathVariable @Min(1) Long id
-//    ) {
-//        this.accountService.delete(id);
-//        return ResponseEntity.noContent().build();
-//    }
-//
-//    // Delete Account using ownerId
-//
-//    /*@DeleteMapping("user/{ownerId}")
-//    @ResponseStatus(HttpStatus.ACCEPTED)
-//    public ApiResponse deleteAccountByUserId(
-//            @PathVariable Long ownerId
-//    ) {
-//        this.accountService.deleteAccountsUsingOwnerId(ownerId);
-//        return new ApiResponse(" Accounts with given userId is deleted Successfully", true);
-//
-//    }*/
-//
-//    @DeleteMapping("user/{ownerId}")
-//    public ResponseEntity deleteAccountByUserId(
-//            @PathVariable @Min(1) Long ownerId
-//    ) {
-//        this.accountService.deleteAccountsUsingOwnerId(ownerId);
-//        return ResponseEntity.noContent().build();
-//
-//    }
+
 }

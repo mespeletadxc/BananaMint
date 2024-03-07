@@ -19,10 +19,7 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
-//@ExtendWith(SpringExtension.class)
-//@DataJpaTest()
-//@ComponentScan(basePackages = {"com.microcompany.accountsservice_IBC.AccountService_IBC.persistence"})
-//@AutoConfigureTestEntityManager
+
 @SpringBootTest
 class AccountRepositoryTest {
 
@@ -72,85 +69,5 @@ class AccountRepositoryTest {
 
     }
 
-//    @Test
-//    void dadoAccountNOValido_cuandoCrear_entoncesExcepcion() throws AccountException {
-//        assertThrows(AccountException.class, () -> {
-//            // Type longitud menor a la válida (de 3 a 10)
-//            Account newAcc = new Account(null, "Co", LocalDate.now(), 1000.00, 100.00,
-//                    new Customer(null, "Juan", "Juan@hotmail.com", LocalDate.now(), "12345678L", null), true);
-//
-//            jpaRepo.save(newAcc);
-//
-//        });
-//
-//    }
-//    @Test
-//    void save() {
-//        // given
-//        Account aAccount = new Account(null, "Cta test", Date.from(Instant.now()), 1000, 1L, null);
-//
-//        // when
-//        jpaRepo.save(aAccount);
-//
-//        //System.out.println("cuenta creada:" + aAccount);
-//
-//        // then
-//        assertThat(aAccount.getId()).isGreaterThan(0);
-//    }
-//
-//    @Test
-//    void findAll() {
-//        // given
-////        Product aProduct = new Product(null, "Fake Product", "123-123-1234");
-////        entityManager.persist(aProduct);
-////        entityManager.flush();
-//
-//        // when
-//        List<Account> accounts = jpaRepo.findAll();
-//        logger.info("Accounts:" + accounts.toString());
-//        System.out.println("Accounts:" + accounts.toString());
-//
-//        // then
-//        assertThat(accounts.size())
-//                .isGreaterThan(0);
-//
-//        assertNotNull(accounts);
-//    }
-//
-//    @Test
-//    void findByOwnerId() {
-//        // given
-////        Product aProduct = new Product(null, "Fake Product", "123-123-1234");
-////        entityManager.persist(aProduct);
-////        entityManager.flush();
-//
-//        // when
-//        List<Account> accounts = jpaRepo.findByOwnerId(1L);
-//        logger.info("Accounts:" + accounts);
-//        logger.info("Size:"+accounts.size());
-//        //System.out.println("Accounts:" + accounts.toString());
-//
-//        // then
-//        assertThat(accounts.size())
-//                .isGreaterThan(0);
-//
-//        assertNotNull(accounts);
-//    }
-    //    @Test
-   /* void findById() {
-    }*/
 
-    //    @Test
-    /*void findByNameContaining() {
-    }*/
-
-    //    @Test
-   /* void findByName() {
-    }*/
-
-
-
-    /*@Test
-    void deleteById() {
-    }*/
 }
