@@ -25,7 +25,7 @@ public class Income {
     private Integer Id;
 
     //@Transient
-    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "customer_id")
     private Customer user;
 
@@ -34,7 +34,7 @@ public class Income {
     private LocalDate enterDate;
 
     //@Transient
-    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "account_id")
     private Account moneyTo;
 

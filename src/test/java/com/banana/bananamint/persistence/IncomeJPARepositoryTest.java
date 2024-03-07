@@ -31,7 +31,9 @@ class IncomeJPARepositoryTest {
     void addIncomeWithCustomerAndAccount() {
 
         Customer varCustomer = new Customer(null, "Maria", "Maria@maria.com", LocalDate.now(),"12345678L",null);
+        //jpaCustomerRepo.save(varCustomer);
         Account varAccount = new Account(null, "Corriente", LocalDate.now(), 10.00, 1000.00,varCustomer, true);
+        jpaAccountsRepo.save(varAccount);
         //Optional<Customer> varCustomer = jpaCustomerRepo.findById(1L);
         //Optional<Account> varAccount = jpaAccountsRepo.findById(2L);
 
