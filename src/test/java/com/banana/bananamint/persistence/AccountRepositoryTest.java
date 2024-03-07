@@ -39,7 +39,7 @@ class AccountRepositoryTest {
     //@Transactional
     void addwithcustomer() {
         Account newAcc = new Account(null, "Corriente", LocalDate.now(), 1000.00, 100.00,
-                new Customer(null, "Juan", "Juan@hotmail.com", LocalDate.now(),"12345678L"),true);
+                new Customer(null, "Lolo", "Lolo@hotmail.com", LocalDate.now(),"12345678L"),true);
 
         jpaRepo.save(newAcc);
         Optional<Account> aAccount = jpaRepo.findById(newAcc.getId());
