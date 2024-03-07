@@ -1,14 +1,18 @@
 package com.banana.bananamint.controller;
 
 import com.banana.bananamint.domain.Account;
+import com.banana.bananamint.domain.Customer;
 import com.banana.bananamint.domain.Expense;
 import com.banana.bananamint.exception.AccountException;
+import com.banana.bananamint.exception.CustomerException;
+import com.banana.bananamint.exception.IncomeExpenseException;
 import com.banana.bananamint.persistence.AccountJPARepository;
 import com.banana.bananamint.persistence.CustomerJPARepository;
 import com.banana.bananamint.persistence.ExpenseJPARepository;
 import com.banana.bananamint.services.IncomeExpenseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import java.time.LocalDate;
+import java.util.Optional;
 
 @RestController
 //@RequestMapping("/expense")
@@ -32,28 +37,41 @@ public class IncomeExpenseController {
     private IncomeExpenseService expenseService;
 
 
-    @PostMapping("/customer/{cid}/account/{aid}/addexpense")
-//    @PostMapping("/customer/1/account/1/addexpense")
-//    @PostMapping("/addexpense")
-    public ResponseEntity addExpense(
+    @PostMapping(value = "/customer/{cid}/account/{aid}/addexpense", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Expense> addExpense(
             @PathVariable @Min(1) Long cid,
             @PathVariable @Min(1) Long aid,
             @RequestBody @Valid Expense expense
     ) {
-        Account newAccount = accountRepo.findById(1L).orElseThrow(() -> new AccountException("Cuenta inexistente. ID: " + 1L));
+//        System.out.println("entro en addExpense");
+//
+//        Customer newCustomer = customerRepo.findById(cid).orElseThrow(() -> new CustomerException("Cliente inexistente. ID: " + cid));
+//
+//         Account newAccount = accountRepo.findById(aid).orElseThrow(() -> new AccountException("Cuenta inexistente. ID: " + aid));
 
-        Expense newExpense = new Expense(null, customerRepo.findById(1L).get(), expense.getAmount(), expense.getDueDate(), accountRepo.findById(1L).get(), expense.getStatus());
+
+//        Expense newExpense = new Expense(null, customerRepo.findById(cid).get(), expense.getAmount(), expense.getDueDate(), accountRepo.findById(aid).get(), expense.getStatus());
+
 //        Expense newExpense = new Expense(null, customerRepo.findById(1L).get(), 200.00, LocalDate.now(), accountRepo.findById(1L).get(), "estado");
 
 //        System.out.println(newExpense);
-        return ResponseEntity.status(HttpStatus.CREATED).body(expenseService.addExpense(1L, newExpense));
+//        expenseService.addExpense(cid, newExpense);
+//        System.out.println("fin en addExpense");
+
+//        return ResponseEntity.status(HttpStatus.ACCEPTED).body(expenseService.addExpense(cid, newExpense));
+        try {
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(expenseService.addExpense(cid, new Expense(null, customerRepo.findById(cid).get(), expense.getAmount(), expense.getDueDate(), accountRepo.findById(aid).get(), expense.getStatus())));
+//        return null;
+        } catch (IncomeExpenseException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST.value()).build();
+        }
     }
-    @GetMapping("/maria")
-    public void hola(
+        @GetMapping("/maria")
+        public void hola (
 
-    ){
-        System.out.println("hola");
+                ) {
+            System.out.println("hola");
+
+        }
 
     }
-
-}

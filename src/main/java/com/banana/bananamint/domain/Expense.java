@@ -1,5 +1,6 @@
 package com.banana.bananamint.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,6 +31,7 @@ public class Expense {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "customer_id")
     @ToString.Exclude
+    @JsonIgnore
     private Customer user;
 
     private double amount;
@@ -41,9 +43,16 @@ public class Expense {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "account_id")
     @ToString.Exclude
+    @JsonIgnore
     private Account moneyFrom;
 
     private String status;
+
+    public Expense(double amount, LocalDate dueDate, String status) {
+        this.amount = amount;
+        this.dueDate = dueDate;
+        this.status = status;
+    }
 
     public Expense(double amount, LocalDate dueDate, Account moneyFrom) {
         this.amount = amount;
