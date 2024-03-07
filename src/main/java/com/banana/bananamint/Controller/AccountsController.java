@@ -46,7 +46,7 @@ public class AccountsController {
 
     @Operation(summary = "Add a new Account", description = "Returns a persisted Account")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "202", description = "Successfully created"),
+            @ApiResponse(responseCode = "201A", description = "Successfully created"),
             @ApiResponse(responseCode = "4XX", description = "Bad request")
     })
     @PostMapping(value = "/{idCustomer}", consumes = MediaType.APPLICATION_JSON_VALUE)
