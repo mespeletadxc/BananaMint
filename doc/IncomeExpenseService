@@ -4,8 +4,11 @@
 *Como usuario, quiero poder añadir nuevos gastos para que el sistema los pueda tener en cuenta en mi
 gestión financiera
 
-IncomeExpenseService
+IncomeExpenseService - Crear nuevo gasto
 
+/customer/{cid}/account/{aid}/addexpense
 
-POST /costumer/{cid}/account/{aid}/addexpense
+POST
+=> json {"amount": xxx.xx, "dueDate": "yyyy-mm-dd", "status": "xxxx"
+<= 202, 500
 
