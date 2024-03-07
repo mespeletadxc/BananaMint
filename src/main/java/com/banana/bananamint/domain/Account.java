@@ -1,5 +1,6 @@
 package com.banana.bananamint.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -41,6 +42,7 @@ public class Account {
     @ManyToOne
     @JoinColumn(name = "customer_id")
     @ToString.Exclude
+    //@JsonIgnore
     private Customer owner;
 
     @NotNull
