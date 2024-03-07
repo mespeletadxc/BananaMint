@@ -38,7 +38,7 @@ public class IncomeExpenseController {
 
 
     @PostMapping(value = "/customer/{cid}/account/{aid}/addexpense", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Expense> addExpense(
+    public ResponseEntity addExpense(
             @PathVariable @Min(1) Long cid,
             @PathVariable @Min(1) Long aid,
             @RequestBody @Valid Expense expense
