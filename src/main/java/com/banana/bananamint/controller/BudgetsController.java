@@ -1,4 +1,4 @@
-package com.banana.bananamint.controller;
+/*package com.banana.bananamint.controller;
 
 import com.banana.bananamint.domain.Budget;
 import com.banana.bananamint.domain.StatusMessage;
@@ -37,15 +37,15 @@ public class BudgetsController {
     @Autowired
     private CustomerJPARepository customerRepository;
 
-    /*******************************************************/
-    /*@GetMapping(value = "", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    *//*******************************************************//*
+    *//*@GetMapping(value = "", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity<List<Budget>> muestraTodos() throws SQLException {
         if (repo.findAll().size() > 0) {
             return new ResponseEntity<>(repo.findAll(), HttpStatus.OK);
         } else {
             throw new BudgetException("La lista de budgets está vacía");
         }
-    }*/
+    }*//*
 
     @GetMapping(value = "/{pid}", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity actualizaProyecto(
@@ -59,7 +59,7 @@ public class BudgetsController {
         }
     }
 
-    /*******************************************************/
+    *//*******************************************************//*
 
     @Operation(summary = "Add a new budget", description = "Returns a persisted budget")
     @ApiResponses(value = {
@@ -75,4 +75,4 @@ public class BudgetsController {
         return new ResponseEntity<>(repo.save(newBudget), HttpStatus.CREATED);
     }
 
-}
+}*/

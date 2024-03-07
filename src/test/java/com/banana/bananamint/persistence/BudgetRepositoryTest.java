@@ -1,4 +1,4 @@
-/*package com.banana.bananamint.persistence;
+package com.banana.bananamint.persistence;
 
 import com.banana.bananamint.domain.Budget;
 import com.banana.bananamint.domain.Category;
@@ -19,9 +19,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 //@ComponentScan(basePackages = {"com.microcompany.accountsservice_IBC.AccountService_IBC.persistence"})
 //@AutoConfigureTestEntityManager
 @SpringBootTest
-class BudgetRepositoryTest_old {
+class BudgetRepositoryTest {
 
-    private static final Logger logger = LoggerFactory.getLogger(BudgetRepositoryTest_old.class);
+    private static final Logger logger = LoggerFactory.getLogger(BudgetRepositoryTest.class);
 
 //    @Autowired
 //    private TestEntityManager entityManager;
@@ -43,4 +43,4 @@ class BudgetRepositoryTest_old {
         // assertThat(aAccount.getId()).isGreaterThan(0);
     }
 
-}*/
+}

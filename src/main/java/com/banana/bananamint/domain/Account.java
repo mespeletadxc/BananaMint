@@ -31,11 +31,15 @@ public class Account {
 
     private double maxOverdraft;
 
-    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    /*@ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)*/
+    @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "customer_id")
     @ToString.Exclude
     private Customer owner;
 
     private boolean active;
 
+    public Account(Long id) {
+        this.id = id;
+    }
 }

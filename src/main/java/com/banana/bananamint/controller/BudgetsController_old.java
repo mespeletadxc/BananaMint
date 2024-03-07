@@ -1,7 +1,7 @@
-/*package com.banana.bananamint.controller;
+package com.banana.bananamint.controller;
 
 import com.banana.bananamint.domain.Budget;
-import com.banana.bananamint.services.BudgetService_old;
+import com.banana.bananamint.services.BudgetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +20,7 @@ import javax.validation.constraints.NotBlank;
 public class BudgetsController_old {
 
     @Autowired
-    private BudgetService_old budgetService;
+    private BudgetService budgetService;
 
 
     @GetMapping("/{id}/{name}")
@@ -28,7 +28,7 @@ public class BudgetsController_old {
             @PathVariable @Min(1) Long id, @PathVariable @NotBlank String name
     ) {
         return ResponseEntity.status(HttpStatus.OK).body((Budget) budgetService.showAll(id, name));
-        *//*return ResponseEntity.status(HttpStatus.OK).body(budgetService.showAll(id,name));*//*
+        /*return ResponseEntity.status(HttpStatus.OK).body(budgetService.showAll(id,name));*/
     }
 
-}*/
+}

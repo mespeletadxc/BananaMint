@@ -1,4 +1,4 @@
-package com.banana.bananamint.persistence;
+/*package com.banana.bananamint.persistence;
 
 
 import com.banana.bananamint.domain.Budget;
@@ -39,4 +39,4 @@ public class JPABudgetJPARepository implements BudgetJPARepository {
     }
 
 
-}
+}*/
