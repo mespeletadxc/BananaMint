@@ -63,6 +63,8 @@ public class Customer {
         this.accounts = accounts;
     }
 
+
+
     public boolean isValid() throws CustomerException {
         // Para que el usuario sea valido:
         // email válido

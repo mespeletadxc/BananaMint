@@ -7,4 +7,8 @@ public class AccountException extends RuntimeException{
     public AccountException(String message) {
         super(message);
     }
+
+    public AccountException(Long accountID) {
+        super("Account with id: " + accountID + " not found");
+    }
 }
